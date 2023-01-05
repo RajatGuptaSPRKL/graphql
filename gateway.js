@@ -7,8 +7,8 @@ const supergraphSdl = new IntrospectAndCompose({
         {
             name: "accounts", url: "http://localhost:5001/graphql",
             name: "inventory", url: "http://localhost:5002/graphql",
-            name: "products", url: "http://localhost:5003/graphql",
-            name: "reviews", url: "http://localhost:5004/graphql"
+            // name: "products", url: "http://localhost:5003/graphql",
+            // name: "reviews", url: "http://localhost:5004/graphql"
         }
     ]
 });
@@ -19,8 +19,10 @@ const gateway = new ApolloGateway({
 });
 
 (async () => {
+    
     const server = new ApolloServer({
-        gateway
+        gateway,
+        sub
     });
 
     const { url } = await startStandaloneServer(server, {
