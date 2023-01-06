@@ -1,0 +1,27 @@
+{
+  "name": "gateway-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gateway.js",
+  "scripts": {
+    "start-gateway": "nodemon gateway.js",
+    "start-service-accounts": "nodemon service/accounts/index.js",
+    "start-service-inventory": "nodemon service/inventory/index.js",
+    "start-service-products": "nodemon service/products/index.js",
+    "start-service-reviews": "nodemon service/reviews/index.js",
+    "start-services": "concurrently \"npm:start-services-*\"",
+    "postinstall": "lerna bootstrap",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RajatGupta",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/gateway": "^2.2.2",
+    "@apollo/server": "^4.3.0",
+    "graphql": "^16.6.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "lerna": "^6.3.0"
+  }
+}
